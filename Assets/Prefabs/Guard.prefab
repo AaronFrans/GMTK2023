@@ -42,10 +42,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8087435715426577123}
-  - component: {fileID: 515568289240610754}
-  - component: {fileID: 860806031125573979}
-  - component: {fileID: 7938585436120841732}
   - component: {fileID: 3291379486685641894}
+  - component: {fileID: 515568289240610754}
+  - component: {fileID: 5168212862343567766}
   m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
@@ -70,56 +69,6 @@ Transform:
   m_Father: {fileID: 2415186077103990228}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &515568289240610754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3905172231818174297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4969178b06a3de34888a0c7e7fdb6872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: {fileID: 1247366823687943336}
-  moveSpeed: 5
-  distanceTreshold: 0.2
---- !u!135 &860806031125573979
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3905172231818174297}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7938585436120841732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3905172231818174297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3960a896b951bd4fa7d55aae15f2cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRadius: 5
-  movement: {fileID: 515568289240610754}
 --- !u!195 &3291379486685641894
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -142,6 +91,40 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &515568289240610754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905172231818174297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4969178b06a3de34888a0c7e7fdb6872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: {fileID: 1247366823687943336}
+  moveSpeed: 5
+  distanceTreshold: 0.2
+--- !u!114 &5168212862343567766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905172231818174297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b348948e03a9f844a5876c5fc5a6d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisionConeMaterial: {fileID: 0}
+  VisionRange: 10
+  VisionAngle: 30
+  VisionObstructingLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  VisionConeResolution: 120
 --- !u!1 &8356477248409028270
 GameObject:
   m_ObjectHideFlags: 0
