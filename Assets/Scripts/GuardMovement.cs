@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,11 +15,14 @@ public class GuardMovement : MonoBehaviour
 
 
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float rotateSpeed = 30f;
 
     [SerializeField] private float distanceTreshold = 5f;
 
     public bool IsAlert { get; set; } = false;
     private bool hasSeenPlayer = false;
+
+    private bool isInRoom = false;
 
 
     public static Transform PlayerTransform { get; set; }
@@ -40,7 +44,7 @@ public class GuardMovement : MonoBehaviour
         currentWaypoint = waypoints.GetNextWayPoint(currentWaypoint);
 
         transform.position = currentWaypoint.position;
-        
+
 
         currentWaypoint = waypoints.GetNextWayPoint(currentWaypoint);
         transform.LookAt(currentWaypoint);
@@ -63,14 +67,45 @@ public class GuardMovement : MonoBehaviour
         }
 
 
+        var temp = Vector3.Distance(transform.position, currentWaypoint.position);
+
         if (Vector3.Distance(transform.position, currentWaypoint.position) < distanceTreshold)
         {
-            currentWaypoint = waypoints.GetNextWayPoint(currentWaypoint);
-            transform.LookAt(currentWaypoint);
-            agent.SetDestination(currentWaypoint.position);
+            if (!isInRoom)
+                StartCoroutine(LookInRoom());
         }
     }
 
+    private IEnumerator LookInRoom()
+    {
+
+        Vector3 rotation = transform.rotation.eulerAngles;
+        agent.speed = 0;
+        agent.updateRotation = false;
+
+        isInRoom = true;
+
+        float rotationInc = 0;
+        while (rotationInc <= 540)
+        {
+            rotationInc += rotateSpeed * Time.deltaTime;
+            rotation.y += rotateSpeed * Time.deltaTime;
+
+
+            transform.rotation = Quaternion.Euler(rotation);
+
+            yield return null;
+        }
+
+
+        agent.speed = moveSpeed;
+        agent.updateRotation = true;
+
+        isInRoom = false;
+
+        currentWaypoint = waypoints.GetNextWayPoint(currentWaypoint);
+        agent.SetDestination(currentWaypoint.position);
+    }
 
     void GoToPlayer()
     {

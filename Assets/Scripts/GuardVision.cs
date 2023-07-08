@@ -33,6 +33,8 @@ public class GuardVision : MonoBehaviour
         {
             DrawVisionCone();
         }
+
+
         CheckForPlayer();
     }
 
@@ -50,11 +52,13 @@ public class GuardVision : MonoBehaviour
             Vector3 VertForward = (Vector3.forward * Cosine) + (Vector3.right * Sine);
             if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit, VisionRange, VisionObstructingLayer))
             {
-                Debug.Log("Player entered");
+                if (hit.collider.tag.Equals("Player"))
+                    Debug.Log("Player entered");
+
                 return;
             }
         }
-       
+
     }
 
     void DrawVisionCone()//this method creates the vision cone mesh

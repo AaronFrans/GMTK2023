@@ -78,7 +78,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3905172231818174297}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -105,7 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: {fileID: 1247366823687943336}
   moveSpeed: 5
-  distanceTreshold: 0.2
+  rotateSpeed: 60
+  distanceTreshold: 0.8
 --- !u!114 &5168212862343567766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,11 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisionConeMaterial: {fileID: 0}
-  VisionRange: 10
-  VisionAngle: 30
+  VisionRange: 20
+  VisionAngle: 45
   VisionObstructingLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   VisionConeResolution: 120
 --- !u!1 &8356477248409028270
 GameObject:
