@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b348948e03a9f844a5876c5fc5a6d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VisionConeMaterial: {fileID: 0}
+  VisionConeMaterial: {fileID: 2100000, guid: 73437d8b94649194db54876bf35e0338, type: 2}
   VisionRange: 20
   VisionAngle: 45
   VisionObstructingLayer:
