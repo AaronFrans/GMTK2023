@@ -67,7 +67,7 @@ public class GuardMovement : MonoBehaviour
         }
 
 
-        var temp = Vector3.Distance(transform.position, currentWaypoint.position);
+        
 
         if (Vector3.Distance(transform.position, currentWaypoint.position) < distanceTreshold)
         {

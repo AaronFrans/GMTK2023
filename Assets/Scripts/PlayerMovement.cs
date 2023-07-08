@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovements();
+        if(!PlayerData.instance.isInteracting)
+            PlayerMovements();
     }
 
     private void PlayerMovements()
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = forwardRelative + rightRelative;
 
-        Vector3 movement = new Vector3(moveDir.x, 0, moveDir.z ) * Time.fixedDeltaTime * movementSpeed;
-        rb.MovePosition(rb.position + movement);
+        Vector3 movement = movementSpeed * Time.fixedDeltaTime * new Vector3(moveDir.x, 0, moveDir.z );
+        rb.velocity = movement;
     }
 }
