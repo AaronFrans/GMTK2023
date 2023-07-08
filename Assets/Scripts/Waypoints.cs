@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Waypoints : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Waypoints : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (transform.childCount == 0)
+            return;
+
         foreach (Transform t in transform)
         {
             Gizmos.color = Color.blue;
